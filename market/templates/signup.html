@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Sign-up page{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <form method="post" style="color: white;">
+        {{ form.hidden_tag() }}
+        <h2 class="card-header">Create Account</h2>
+        {{ form.username.label(class="col-form-label-lg") }}
+        {{ form.username(class="form-control", placeholder="Username") }}
+    
+        {{ form.email.label(class="col-form-label-lg") }}
+        {{ form.email(class="form-control", placeholder="Email address") }}
+    
+        {{ form.password.label(class="col-form-label-lg") }}
+        {{ form.password(class="form-control", placeholder="Password") }}
+    
+        {{ form.confirm_password.label(class="col-form-label-lg") }}
+        {{ form.confirm_password(class="form-control", placeholder="Confirm password") }}
+        <br>
+        {{ form.submit(class="btn-primary form-control rounded-lg", placeholder="Sign-up") }}
+    
+        <div class="checkbox mb-3">
+            <p>
+                Already have an account?
+                <a class="link text-primary" href="{{ url_for('login_page') }}">Login</a>
+            </p>
+        </div>
+    </form> 
+</div>
+{% endblock %}

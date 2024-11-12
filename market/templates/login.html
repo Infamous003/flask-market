@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Login page{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <form method="post" style="color: white;">
+        {{ form.hidden_tag() }}
+        <h2>Login</h2>
+        {{ form.username.label() }}
+        {{ form.username(class="form-control", placeholder="Username") }}
+
+        {{ form.password.label() }}
+        {{ form.password(class="form-control", placeholder="Password") }}
+        <br>
+        {{ form.submit(class="form-control btn-primary rounded-lg") }}
+
+        <div class="checkbox mb-3">
+            <p>
+                Do not have an account?
+                <a class="link text-primary" href="{{ url_for('signup_page') }}">Sign-up</a>
+            </p>
+        </div>
+    </form>
+</div>
+{% endblock %}

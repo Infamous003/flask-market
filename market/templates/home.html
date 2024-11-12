@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    <h1>Welcome to <b>MyShop</b></h1>
+    <h2>Your go-to shop for electronics, from smartphones to video game consoles. We've got it all.</h2>
+    <a class="btn btn-primary" href="{{ url_for('signup_page') }}">Get started!</a>
+</div>
+{% endblock %}

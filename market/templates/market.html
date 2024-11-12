@@ -1,0 +1,35 @@
+{% extends "home.html" %}
+{% block title %}Market{% endblock %}
+
+{% block page_content %}
+
+<div class="container-fluid">
+    <table class="table table-hover table-dark">
+        <legend>Items in stock</legend>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Barcode</th>
+                <th scope="col">Price</th>
+                <th scope="col">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for item in items %}
+                {% include 'includes/items_modals.html' %}
+                    <tr>
+                        <td>{{ item.item_id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.barcode }}</td>
+                        <td>${{ item.price }}</td>
+                        <td>
+                            <button class="btn btn-outline btn-info {{ item.item_id }}" type="submit" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.item_id }}">More</button>
+                            <button class="btn btn-outline btn-success" type="submit" data-toggle="modal" data-target="#Modal-Purchase-{{ item.item_id }}">Buy</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
